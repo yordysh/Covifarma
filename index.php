@@ -51,6 +51,8 @@ $contador = 0;
 	<!--==== Iconos ICOMOON =====-->
 	<link rel="stylesheet" href="assets/js/icons/style.css" />
 
+	<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+	<script src="assets/js/datos.js"></script>
 
 </head>
 
@@ -139,30 +141,30 @@ $contador = 0;
 							<center><label class="title">ZONAS/ÁREAS</label></center>
 						</div>
 						<div class="main">
-							<form method="post" action="mantenedor/insertarZona.php">
+							<form id="formulario" method="post" action="mantenedor/insertarZona.php">
 
 								<!-- Text input -->
 								<div class="form-outline mb-4">
 
-									<input type="text" id="form6Example3" class="form-control" name="codigo" />
+									<input type="text" id="codigo" class="form-control" name="codigo" />
 									<label class="form-label">Código</label>
 								</div>
 
 								<!-- Text input -->
 								<div class="form-outline mb-4">
-									<input type="text" id="form6Example3" class="form-control" name="nombreArea">
+									<input type="text" id="nombreArea" class="form-control" name="nombreArea">
 									<label class="form-label">Nombre de área</label>
 								</div>
 
 								<!-- Text input -->
 								<div class="form-outline mb-4">
-									<input type="text" id="form6Example4" class="form-control" name="fecha" />
+									<input type="text" id="fecha" class="form-control" name="fecha" />
 									<label class="form-label">Fecha</label>
 								</div>
 
 								<!-- Email input -->
 								<div class="form-outline mb-4">
-									<input type="text" id=" form6Example5" class="form-control" name="version" />
+									<input type="text" id=" version" class="form-control" name="version" />
 									<label class="form-label">Version</label>
 								</div>
 
@@ -211,10 +213,78 @@ $contador = 0;
 						</div>
 					</div>
 				</section>
-		<?php
+				<?php
 			} else {
-				if ($xlista == "infra") {
-					include 'infraestructura.php';
+				if ($xlista == "infra") { ?>
+					<section>
+						<div class="container g-4 mt-100 row">
+							<div class="row g-4 top-div">
+								<center><label class="title">INFRAESTRUCTURA, ACCESORIOS COMPLEMENTARIOS</label></center>
+							</div>
+							<div class="main">
+								<form method="post" action="mantenedor/insertarZona.php">
+
+									<!-- Text input -->
+									<div class="form-outline mb-4">
+
+										<input type="text" id="form6Example3" class="form-control" name="codigo" />
+										<label class="form-label">Código</label>
+									</div>
+
+									<!-- Text input -->
+									<div class="form-outline mb-4">
+										<input type="text" id="form6Example3" class="form-control" name="nombreArea">
+										<label class="form-label">Nombre de accesorio</label>
+									</div>
+
+									<!-- Text input -->
+									<div class="form-outline mb-4">
+										<input type="text" id="form6Example4" class="form-control" name="fecha" />
+										<label class="form-label">Días</label>
+									</div>
+									<!-- Submit button -->
+									<input type="submit" name="insert" class="btn btn-primary" value="Guardar">
+								</form>
+								<div class="table-responsive " style="overflow: scroll;height: 600px; margin-top:100px;">
+									<table id="tbalmacen" class="table table-sm mb-3 table-hover">
+										<thead>
+											<tr>
+												<th class="thtitulo" scope="col">CODIGO</th>
+												<th class="thtitulo" scope="col">NOMBRE DE ACCESORIO</th>
+												<th class="thtitulo" scope="col">FECHA</th>
+												<th></th>
+												<th></th>
+											</tr>
+										</thead>
+										<tbody>
+											<?php if (!empty($data)) {
+
+											?>
+												<?php foreach ($data as $lista) : ?>
+													<tr>
+														<td><?php echo $lista->codigo ?></td>
+														<td><?php echo $lista->nombreArea ?></td>
+														<td><?php echo $lista->fecha ?></td>
+														<td> <a href="mantenedor/editar.php?id=<?php echo $lista->id; ?>" class="btn btn-success" name="editar"><i class="icon-edit"></i></a> </td>
+														<td> <a href="mostrar.php?id=<?php echo $lista->id; ?>" class="btn btn-danger" name="borrar"><i class="icon-trash"></i></a> </td>
+
+													</tr>
+												<?php
+												endforeach;
+												?>
+											<?php
+											} else { ?>
+												<tr>
+													<td colspan="7">No se encontro lista...</td>
+												</tr>
+											<?php } ?>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</section>
+		<?php
 				}
 			}
 		}

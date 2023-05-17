@@ -3,24 +3,13 @@ require_once "DataBaseA.php";
 require_once "registrar.php";
 $conexion = new DataBase();
 $dats = $conexion->Conectar();
-// echo $dats;
+
 $mostrar = new m_almacen();
 $data = $mostrar->MostrarAlmacenMuestra();
-// $insert = $mostrar->InsertarAlmacen($id, $codigo, $nombreArea, $fecha, $version);
 $contador = 0;
-// echo $data;
 
-if (isset($_POST['insert'])) {
 
-  // $id = trim($_POST['id']);
-  $codigo = trim($_POST['codigo']);
-  $nombreArea = trim($_POST['nombreArea']);
-  $fecha = trim($_POST['fecha']);
-  $version = trim($_POST['version']);
-  $mostrar->InsertarAlmacen($codigo, $nombreArea, $fecha, $version);
-  header('Location:mostrar.php');
-}
-
+// include "../index.php";
 
 ?>
 
@@ -44,7 +33,7 @@ if (isset($_POST['insert'])) {
         <center><label class="title">ZONAS/ÁREAS</label></center>
       </div>
       <div class="main">
-        <form method="post">
+        <form method="post" action="mantenedor/insertarZona.php">
 
           <!-- Text input -->
           <div class="form-outline mb-4">

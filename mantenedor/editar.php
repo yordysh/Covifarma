@@ -62,7 +62,7 @@ $row = $query->fetch(PDO::FETCH_OBJ);
     <section>
         <div class="contenedormap g-4 row">
             <div class="row g-4 top-div">
-                <center><label class="titulos">EDITAR ZONAS/ÁREAS</label></center>
+                <center><label class="title">EDITAR ZONAS/ÁREAS</label></center>
             </div>
             <div class="main">
                 <form method="POST">

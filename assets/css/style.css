@@ -182,7 +182,7 @@ textarea {
   background: #fff;
   font-size: 16px;
   padding: 17px 30px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   transition: all 0.3s ease-out 0s;
   border: 1px solid transparent;
 }
@@ -360,7 +360,7 @@ textarea:focus {
   height: 100%;
   border-style: solid;
   /* Spinner Color */
-  border-color: #FF6B6B #FF6B6B #F9F9F9;
+  border-color: #813c8f #813c8f #F9F9F9;
   border-radius: 50%;
   border-width: 6px;
 }
@@ -1191,7 +1191,23 @@ textarea:focus {
     padding: 10px 0;
   }
 }
-
+/* ====---- Form Zona ----==== */
+.title{
+  color: #171113;
+  font-weight: 600;
+}
+.main{
+  width:88%;
+  margin:0 auto;
+  padding:1em;
+  /*border-style: solid;
+  border-width: 1px;
+  border-radius: 8px;*/
+  height: 57%;
+ }
+ .form-label {
+  color: #171113;
+ }
 @media (max-width: 767px) {
   .sticky .navbar {
     padding: 10px 0;
@@ -1208,6 +1224,13 @@ textarea:focus {
   .navbar {
     padding: 15px 0;
   }
+  .btn-primary {
+    width: 50%;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
 }
 
 @media (max-width: 767px) {
@@ -1337,6 +1360,10 @@ textarea:focus {
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .navbar-nav .nav-item {
     margin-right: 30px;
+  }
+  .btn-primary {
+    width: 50%;
+    
   }
 }
 
@@ -1993,7 +2020,20 @@ hero area css
     margin-right: 20px;
   }
 }
+@media only screen and (min-width: 992px) and (max-width: 1400px) {
+  .justify-content-center {
+    margin-top: 5rem;
+  }
+  .col-lg-3 {
+    flex: 0 0 auto;
+    width: 40%;
+}
+.col-lg-2 {
+  flex: 0 0 auto;
+  width: 40%;
+}
 
+}
 @media (max-width: 767px) {
   .category-area .category-top .right-wrapper .product-view-btns {
     margin-right: 10px;
